@@ -1,0 +1,134 @@
+Aerospace Engineering + Architectural Engineering = 8.7
+Aerospace Engineering + Biomedical Engineering = 9.2
+Aerospace Engineering + Chemical Engineering = 9.0
+Aerospace Engineering + Chemical Engineering: Bioengineering = 8.5
+Aerospace Engineering + Civil Engineering = 8.8
+Aerospace Engineering + Computer Engineering = 9.1
+Aerospace Engineering + Computer Science = 9.3
+Aerospace Engineering + Electrical Engineering = 9.0
+Aerospace Engineering + Engineering Physics = 8.2
+Aerospace Engineering + Environmental Engineering = 8.9
+Aerospace Engineering + Environmental Science = 8.1
+Aerospace Engineering + Industrial and Systems Engineering = 8.7
+Aerospace Engineering + Industrial and Systems Engineering: Analytics = 8.6
+Aerospace Engineering + Mechanical Engineering = 9.2
+
+Architectural Engineering + Biomedical Engineering = 8.9
+Architectural Engineering + Chemical Engineering = 9.1
+Architectural Engineering + Chemical Engineering: Bioengineering = 8.6
+Architectural Engineering + Civil Engineering = 9.0
+Architectural Engineering + Computer Engineering = 8.8
+Architectural Engineering + Computer Science = 9.2
+Architectural Engineering + Electrical Engineering = 8.9
+Architectural Engineering + Engineering Physics = 8.1
+Architectural Engineering + Environmental Engineering = 9.0
+Architectural Engineering + Environmental Science = 8.0
+Architectural Engineering + Industrial and Systems Engineering = 8.9
+Architectural Engineering + Industrial and Systems Engineering: Analytics = 8.8
+Architectural Engineering + Mechanical Engineering = 9.1
+
+Biomedical Engineering + Chemical Engineering = 9.3
+Biomedical Engineering + Chemical Engineering: Bioengineering = 8.8
+Biomedical Engineering + Civil Engineering = 8.6
+Biomedical Engineering + Computer Engineering = 9.2
+Biomedical Engineering + Computer Science = 9.4
+Biomedical Engineering + Electrical Engineering = 9.1
+Biomedical Engineering + Engineering Physics = 8.3
+Biomedical Engineering + Environmental Engineering = 9.0
+Biomedical Engineering + Environmental Science = 8.9
+Biomedical Engineering + Industrial and Systems Engineering = 8.9
+Biomedical Engineering + Industrial and Systems Engineering: Analytics = 8.8
+Biomedical Engineering + Mechanical Engineering = 9.3
+
+Chemical Engineering + Chemical Engineering: Bioengineering = 8.7
+Chemical Engineering + Civil Engineering = 8.9
+Chemical Engineering + Computer Engineering = 9.1
+Chemical Engineering + Computer Science = 9.3
+Chemical Engineering + Electrical Engineering = 9.2
+Chemical Engineering + Engineering Physics = 8.4
+Chemical Engineering + Environmental Engineering = 9.0
+Chemical Engineering + Environmental Science = 8.8
+Chemical Engineering + Industrial and Systems Engineering = 8.8
+Chemical Engineering + Industrial and Systems Engineering: Analytics = 8.7
+Chemical Engineering + Mechanical Engineering = 9.1
+
+Chemical Engineering: Bioengineering + Civil Engineering = 8.5
+Chemical Engineering: Bioengineering + Computer Engineering = 8.8
+Chemical Engineering: Bioengineering + Computer Science = 9.0
+Chemical Engineering: Bioengineering + Electrical Engineering = 8.9
+Chemical Engineering: Bioengineering + Engineering Physics = 8.1
+Chemical Engineering: Bioengineering + Environmental Engineering = 8.6
+Chemical Engineering: Bioengineering + Environmental Science = 7.8
+Chemical Engineering: Bioengineering + Industrial and Systems Engineering = 8.4
+Chemical Engineering: Bioengineering + Industrial and Systems Engineering: Analytics = 8.3
+Chemical Engineering: Bioengineering + Mechanical Engineering = 8.8
+
+Civil Engineering + Computer Engineering = 9.0
+Civil Engineering + Computer Science = 9.2
+Civil Engineering + Electrical Engineering = 9.1
+Civil Engineering + Engineering Physics = 8.3
+Civil Engineering + Environmental Engineering = 9.0
+Civil Engineering + Environmental Science = 8.8
+Civil Engineering + Industrial and Systems Engineering = 9.0
+Civil Engineering + Industrial and Systems Engineering: Analytics = 8.9
+Civil Engineering + Mechanical Engineering = 9.2
+
+Computer Engineering + Computer Science = 9.3
+Computer Engineering + Electrical Engineering = 9.4
+Computer Engineering + Engineering Physics = 8.6
+Computer Engineering + Environmental Engineering = 9.1
+Computer Engineering + Environmental Science = 8.9
+Computer Engineering + Industrial and Systems Engineering = 9.1
+Computer Engineering + Industrial and Systems Engineering: Analytics = 9.0
+Computer Engineering + Mechanical Engineering = 9.3
+
+Computer Science + Electrical Engineering = 9.4
+Computer Science + Engineering Physics = 8.6
+Computer Science + Environmental Engineering = 9.2
+Computer Science + Environmental Science = 8.8
+Computer Science + Industrial and Systems Engineering = 9.2
+Computer Science + Industrial and Systems Engineering: Analytics = 9.1
+Computer Science + Mechanical Engineering = 9.4
+
+Electrical Engineering + Engineering Physics = 8.2
+Electrical Engineering + Environmental Engineering = 9.0
+Electrical Engineering + Environmental Science = 8.8
+Electrical Engineering + Industrial and Systems Engineering = 9.1
+Electrical Engineering + Industrial and Systems Engineering: Analytics = 9.0
+Electrical Engineering + Mechanical Engineering = 9.3
+
+Engineering Physics + Environmental Engineering = 8.0
+Engineering Physics + Environmental Science = 7.8
+Engineering Physics + Industrial and Systems Engineering = 8.2
+Engineering Physics + Industrial and Systems Engineering: Analytics = 8.1
+Engineering Physics + Mechanical Engineering = 8.6
+
+Environmental Engineering + Environmental Science = 8.5
+Environmental Engineering + Industrial and Systems Engineering = 8.7
+Environmental Engineering + Industrial and Systems Engineering: Analytics = 8.6
+Environmental Engineering + Mechanical Engineering = 9.0
+
+Environmental Science + Industrial and Systems Engineering = 8.3
+Environmental Science + Industrial and Systems Engineering: Analytics = 8.2
+Environmental Science + Mechanical Engineering = 8.7
+
+Industrial and Systems Engineering + Industrial and Systems Engineering: Analytics = 9.3
+Industrial and Systems Engineering + Mechanical Engineering = 9.1
+
+Industrial and Systems Engineering: Analytics + Mechanical Engineering = 8.9
+
+Aerospace Engineering + Aerospace Engineering = 10
+Architectural Engineering + Architectural Engineering = 10
+Biomedical Engineering + Biomedical Engineering = 10
+Chemical Engineering + Chemical Engineering = 10
+Chemical Engineering: Bioengineering + Chemical Engineering: Bioengineering = 10
+Civil Engineering + Civil Engineering = 10
+Computer Engineering + Computer Engineering = 10
+Computer Science + Computer Science = 10
+Electrical Engineering + Electrical Engineering = 10
+Engineering Physics + Engineering Physics = 10
+Environmental Engineering + Environmental Engineering = 10
+Environmental Science + Environmental Science = 10
+Industrial and Systems Engineering + Industrial and Systems Engineering = 10
+Industrial and Systems Engineering: Analytics + Industrial and Systems Engineering: Analytics = 10
+Mechanical Engineering + Mechanical Engineering = 10
