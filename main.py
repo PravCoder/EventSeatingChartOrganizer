@@ -1,3 +1,21 @@
+import random 
+
+
+NAMES = ["Emma", "Liam", "Olivia", "Noah", "Ava", "Isabella", "Sophia", "Mia", "Jackson", "Aiden",
+               "Lucas", "Layla", "Ethan", "Oliver", "Amelia", "Muhammad", "Elijah", "Alexander", "James", "Charlotte",
+               "Harper", "Mila", "Abigail", "Ella", "Scarlett", "Aria", "Grace", "Chloe", "Lily", "Lillian",
+               "Henry", "Benjamin", "Sebastian", "Michael", "Lucy", "Sofia", "Madison", "Aubrey", "Camila", "Avery",
+               "Evelyn", "Evelyn", "Zoey", "Riley", "Mateo", "Carter", "Landon", "Grayson", "Samantha", "Genesis",
+               "Olivia", "Paisley", "Elena", "Isabelle", "Victoria", "Zoe", "Skylar", "Bella", "Aurora", "Eleanor",
+               "Emma", "Mia", "Aria", "Layla", "Chloe", "Scarlett", "Aubrey", "Zoey", "Amelia", "Harper",
+               "Madison", "Evelyn", "Elizabeth", "Ella", "Grace", "Victoria", "Sofia", "Camila", "Avery", "Luna",
+               "Stella", "Aria", "Zara", "Hannah", "Addison", "Lily", "Nora", "Riley", "Zoe", "Leah",
+               "Aurora", "Alice", "Penelope", "Mila", "Bella", "Ariana", "Lucy", "Sarah", "Hailey", "Eva",
+               "Anna", "Taylor", "Katherine", "Kylie", "Mia", "Sophie", "Alexandra", "Madeline", "Makayla", "Faith",
+               "Ava", "Isabella", "Sophia", "Emma", "Olivia", "Aria", "Mia", "Amelia", "Charlotte", "Luna",
+               "Evelyn", "Abigail", "Chloe", "Avery", "Harper", "Ella", "Sofia", "Grace", "Aubrey", "Aurora"]
+
+# List of random last names
 
 # represents each Guest, given their name, major, and person_type which is either "student","prof","mentor"
 class Guest:
@@ -5,6 +23,8 @@ class Guest:
         self.name = name
         self.major = major
         self.person_type = person
+    def __repr__(self) -> str:
+        return self.name + ", "+self.major
 # represents each Table, given its primary-key unique id-number, major-string, and its maximum occupancy integer
 class Table:
     def __init__(self, id, major, max_seats):
@@ -60,10 +80,44 @@ class SeatingChart:
 
 # {major-label: number of tables allocated}
 major_tables = {"Aero/Mech":3,"Archi/Civil":3,"Elec":1,"Indus":1,"Env":1,"Bio":4,"Chem":3,"CS":3,"Deans/Chairmen/IndustryFriends":2}
-# {person-type: }
-max_constants = {"student":2, "prof":1, "mentor":1, "seats":8}
-# 
+# {person-type: max-occupancy of that person-type at each table}
+max_constants = {"student":2, "professor":1, "mentor":1, "seats":8}
 chart = SeatingChart("Womens Engineering", major_tables, max_constants)
+    
+def simulate_event(seating_chart):
+    student_percentage = 0.8
+    prof_percentage = 0.1
+    mentor_percentage = 0.1
+    major_percents = {"Aero/Mech": 0.15,"Archi/Civil": 0.12, "Elec": 0.12,"Indus": 0.1,"Env": 0.1,"Bio": 0.08,"Chem": 0.08,"CS": 0.1,"Deans/Chairmen/IndustryFriends": 0.05}
+    print("SIMULATION INFO:")
+    print("Students: "+str((student_percentage*100))+"%")
+    print("Professors: "+str((prof_percentage*100))+"%")
+    print("Mentors: "+str((mentor_percentage*100))+"%")
+    for key, value in major_percents.items():
+        print(key + ": "+str((value*100))+"%")
+    print("-----------------")
+    print("SEATING CHART")
+    total_guests = random.randrange(100, 200)
+    guests_in_order = []
+    for _ in range(total_guests):
+        random_guest_type = random.choices(['student', 'professor', 'mentor'], weights=[student_percentage, prof_percentage, mentor_percentage])[0]
+        random_major = random.choices(list(major_percents.keys()), weights= list(major_percents.values()))[0]
+        random_name = random.choice(NAMES)
+        NAMES.pop(NAMES.index(random_name))
+        new_guest = Guest(random_name, random_major, random_guest_type)
+        guests_in_order.append(new_guest)
+    
+    for guest in guests_in_order:
+        seating_chart.assign_guest(guest)
+    seating_chart.show()
+simulate_event(chart)
+
+"""
+TODO:
+- Simulate randomness of how guests arrive
+- A student major table is full add them to table with most similar score. Overflow Error. 
+
+"""
 
 """
 chart.assign_guest(Guest("Bob","CS","student"))
@@ -71,21 +125,4 @@ chart.assign_guest(Guest("Kai","CS","student"))
 chart.assign_guest(Guest("Sam","CS","student"))
 chart.assign_guest(Guest("Mary","Bio","student"))
 chart.show()
-"""
-    
-
-
-
-"""
-- Simulate randomness of how guests arrive
-- A student major table is full add them to table with most similar score. Overflow Error. 
-
-TODO:
-- Create different number of tables per major
-- Number of tables = 
-- Number of seats per = 8
-- Number of students per = 
-- Number of prof per = 
-- Number of mentor per = 
-- All tables = []
 """
