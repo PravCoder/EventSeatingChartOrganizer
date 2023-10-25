@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=200, null=True)
+    date =  models.CharField(max_length=200, null=True)
+    info = models.CharField(max_length=200, null=True)
+    # pre_registered_guests = Man
+
