@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+
 major_tables = {"Aero/Mech":3,"Archi/Civil":3,"Elec":1,"Indus":1,"Env":1,"Bio":4,"Chem":3,"CS":3,"Deans/Chairmen/IndustryFriends":2}
 max_constants = {"student":2, "professor":1, "mentor":1, "seats":8}
 

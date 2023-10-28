@@ -5,13 +5,79 @@
 
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+font-family: Arial, sans-serif;
+background-color: #f4f4f4;
+margin: 0;
+padding: 0;
 }
 
+.container-info {
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+background-color: white;
+box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+margin-top: 50px;
+}
+
+.event-name {
+font-size: 24px;
+font-weight: bold;
+color: #333;
+}
+
+.event-info {
+margin-top: 10px;
+color: #555;
+}
+
+.event-date {
+margin-top: 20px;
+font-style: italic;
+color: #888;
+}
+
+
 .container {
+max-width: 600px;
+margin: 0 auto;
+padding: 20px;
+background-color: white;
+box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+margin-top: 50px;
+}
+
+.guest-list {
+list-style: none;
+padding: 0;
+}
+
+.guest-item {
+background-color: #ffffff;
+margin-bottom: 10px;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.guest-item h3 {
+margin: 0 0 5px 0;
+}
+
+.guest-item p {
+margin: 0;
+}
+
+
+
+
+
+
+
+
+.container-chart {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -19,106 +85,95 @@ body {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
 }
 
-.event-name {
-    font-size: 24px;
+.table {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.table-name {
+    font-size: 18px;
     font-weight: bold;
-    color: #333;
+    margin-bottom: 10px;
 }
 
-.event-info {
-    margin-top: 10px;
+.seats-info {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.guest {
+    margin-bottom: 8px;
+}
+
+.guest-name {
+    font-weight: bold;
+}
+
+.guest-major {
     color: #555;
 }
 
-.event-date {
-    margin-top: 20px;
-    font-style: italic;
-    color: #888;
+.guest-type {
+    color: #777;
 }
 
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 50px;
+
+
+
+
+
+
+
+
+
+.form-group {
+    margin-bottom: 20px;
 }
 
-.guest-list {
-    list-style: none;
-    padding: 0;
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.guest-item {
-    background-color: #ffffff;
-    margin-bottom: 10px;
-    padding: 10px;
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
-.guest-item h3 {
-    margin: 0 0 5px 0;
+.form-group select {
+    cursor: pointer;
 }
 
-.guest-item p {
-    margin: 0;
+.form-group button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-
-
-.container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 50px;
-        }
-
-        .table {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .table-name {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .seats-info {
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .guest {
-            margin-bottom: 8px;
-        }
-
-        .guest-name {
-            font-weight: bold;
-        }
-
-        .guest-major {
-            color: #555;
-        }
-
-        .guest-type {
-            color: #777;
-        }
+.form-group button:hover {
+    background-color: #45a049;
+}
 </style>
 
 <body>
-    <div class="container">
+    <div class="container-info">
         <div class="event-name">{{ event.title }}</div>
         <div class="event-info">
             {{ event.info }}
@@ -127,71 +182,6 @@ body {
     </div>
 </body>
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guest Registration</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 50px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group select {
-            width: 100%;
-            padding: 8px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-group select {
-            cursor: pointer;
-        }
-
-        .form-group button {
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .form-group button:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
 
 <body>
     <div class="container">
@@ -255,10 +245,10 @@ body {
 
 
 <body>
-    <div class="container">
+    <div class="container-chart">
         {% for t in event.chart.tables.all %}
             <div class="table">
-                <div class="table-name">{{t.label}}</div>
+                <div class="table-name">{{t.label}} ( {{t.num_id }} )</div>
                 <div class="seats-info">Max Seats: {{t.max_seats}} | Seats Available: {{t.get_avalible}}</div> <!-- TODO -->
                 {% for g in t.seated_guests.all %}
                     <div class="guest">
@@ -272,6 +262,7 @@ body {
             </div>
         {% endfor %}
     </div>
+    
 </body>
 
 </html>
