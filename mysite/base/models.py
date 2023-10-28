@@ -19,7 +19,10 @@ class Table(models.Model):
         return len(list(self.seated_guests))
     @property
     def get_avalible(self):
-        return self.max_seats-self.seated_guests.through.objects.count()
+        count = 0
+        for _ in self.seated_guests.all():
+            count += 1
+        return self.max_seats - count
     
     def get_type_count(self, person_type):
         count = 0
