@@ -10,7 +10,6 @@ def home(request):
     return render(request, "base/home.html", context)
 
 def view_event(request, pk):
-    
 
     event = Event.objects.get(id=str(pk))
     if request.method == "POST":
@@ -22,6 +21,12 @@ def view_event(request, pk):
 
             guest = Guest.objects.create(name=name, email=email, major=major, person_type=person_type)
             event.guests.add(guest)
+            event.save()
+            guest.save()
+
+            assigned_table = event.chart.assign_guest(guest, max_constants)
+
+            print(assigned_table.label)
             event.save()
             guest.save()
 

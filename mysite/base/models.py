@@ -20,6 +20,13 @@ class Table(models.Model):
     @property
     def get_avalible(self):
         return self.max_seats-self.seated_guests.through.objects.count()
+    
+    def get_type_count(self, person_type):
+        count = 0
+        for guest in self.seated_guests.all():
+            if guest.person_type ==  person_type:
+                count += 1
+        return count
 
 class SeatingChart(models.Model):
     tables = models.ManyToManyField("Table", related_name="tables", blank=True)
@@ -33,6 +40,16 @@ class SeatingChart(models.Model):
                 event.chart.tables.add(table)
                 event.save()
                 table.save()
+
+    def assign_guest(self, new_guest, max_constants):
+        for table in self.tables.all():
+            if table.label == new_guest.major:
+                if table.get_type_count(new_guest.person_type) < max_constants[new_guest.person_type] and len(list(table.seated_guests.all())) < table.max_seats:
+                    table.seated_guests.add(new_guest)
+                    table.save()
+                    new_guest.save()
+                    return table
+        return False
 
 
 class Event(models.Model):
