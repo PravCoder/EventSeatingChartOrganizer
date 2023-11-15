@@ -179,11 +179,45 @@ margin: 0;
             {{ event.info }}
         </div>
         <div class="event-date">Date: {{ event.date }}</div>
+        <p>Max students per: 2</p>
+        <p>Max proffessors per:  1</p>
+        <p>Max mentors per:  1</p>
     </div>
 </body>
 
 
 <body>
+    <div class="container">
+        <h2>Add table </h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Table Name:</label>
+                <input type="text" id="table-name" name="table-name" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Max seats:</label>
+                <input type="text" id="max-seats" name="max-seats" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Max prof in table:</label>
+                <input type="text" id="prof-num" name="prof-num" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Max students in table:</label>
+                <input type="text" id="student-num" name="student-num" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Max mentor in table:</label>
+                <input type="text" id="mentor-num" name="mentor-num" required>
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" name="add-table" value="Submitted">Register</button>
+            </div>
+        </form>
+    </div>
     <div class="container">
         <h2>Guest Registration</h2>
         <form action="" method="POST">
@@ -198,6 +232,7 @@ margin: 0;
             </div>
             <div class="form-group">
                 <label for="major">Major:</label>
+                
                 <select id="major" name="major" required>
                     <option value="" disabled selected>Select your major</option>
                     <option value="Aero/Mech">Aero/Mechanical Engineering</option>
@@ -215,12 +250,12 @@ margin: 0;
                 <select id="person-type" name="person-type" required>
                     <option value="" disabled selected>Select person type</option>
                     <option value="student">Student</option>
-                    <option value="prof">Professor</option>
+                    <option value="professor">Professor</option>
                     <option value="mentor">Mentor</option>
                 </select>
             </div>
             <div class="form-group">
-                <button type="submit" name="guest-register" value="Not-None">Register</button>
+                <button type="submit" name="guest-register" value="Submitted">Register</button>
             </div>
         </form>
     </div>
@@ -249,7 +284,7 @@ margin: 0;
         {% for t in event.chart.tables.all %}
             <div class="table">
                 <div class="table-name">{{t.label}} ( {{t.num_id }} )</div>
-                <div class="seats-info">Max Seats: {{t.max_seats}} | Seats Available: {{t.get_avalible}}</div> <!-- TODO -->
+                <div class="seats-info">Max Seats: {{t.max_seats}} | Seats Available: {{t.get_avalible}} | Max prof: {{t.max_prof}} | Max students: {{t.max_students}} | Max mentors: {{t.max_mentors}}</div> <!-- TODO -->
                 {% for g in t.seated_guests.all %}
                     <div class="guest">
                         <div class="guest-name">{{g.name}}</div>
@@ -274,6 +309,8 @@ margin: 0;
 
 
 </head>
+
+
 
 
 

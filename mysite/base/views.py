@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 
 major_tables = {"Aero/Mech":3,"Archi/Civil":3,"Elec":1,"Indus":1,"Env":1,"Bio":4,"Chem":3,"CS":3,"Deans/Chairmen/IndustryFriends":2}
-max_constants = {"student":2, "professor":1, "mentor":1, "seats":8}
+max_constants = {"student":2, "professor":1, "mentor":1, "seats":4}
 
 def home(request):
     all_events = Event.objects.all()
@@ -13,7 +13,9 @@ def view_event(request, pk):
 
     event = Event.objects.get(id=str(pk))
     if request.method == "POST":
-        if request.POST.get("guest-register"):
+        print(request.POST)
+        if request.POST.get("guest-register") == "Submitted":
+            print("GUEST REGISTER")
             name = request.POST.get("name")
             email = request.POST.get("email")
             major = request.POST.get("major")
@@ -26,10 +28,25 @@ def view_event(request, pk):
 
             assigned_table = event.chart.assign_guest(guest, max_constants)
 
-            print(assigned_table.label)
             event.save()
             guest.save()
 
+        if request.POST.get("add-table") == "Submitted":
+            print("ADD TABLE")
+            table_name = request.POST.get("table-name")
+            max_seats = int(request.POST.get("max-seats"))
+            max_prof = int(request.POST.get("prof-num"))
+            max_students = int(request.POST.get("student-num"))
+            max_mentors = int(request.POST.get("mentor-num"))
+            table_ids = [table.num_id for table in event.chart.tables.all() ]
+            if len(table_ids) > 0:
+                new_table = Table.objects.create(label=table_name,max_seats=max_seats,max_prof=max_prof,max_students=max_students,max_mentors=max_mentors,num_id=max(table_ids)+1)
+            else:
+                new_table = Table.objects.create(label=table_name,max_seats=max_seats,max_prof=max_prof,max_students=max_students,max_mentors=max_mentors,num_id=1)
+            event.chart.tables.add(new_table)
+
+            new_table.save()
+            event.save()
     context = {"event":event}
     return render(request, "base/view_event.html", context)
 
@@ -43,18 +60,26 @@ def create_event(request):
         c.save()
         event.chart = c
         event.save()
-        event.chart.init_tables(major_tables, event)
+        # event.chart.init_tables(major_tables, event)   # testing add tables
         event.save()
 
     context = {}
     return render(request, "base/create_event.html", context)
 
 
-"""
+""" 
 TODO:
-- Editting for fornt desk person.
+- Editting for frnot desk person.
+- User can type different types of people
+- Error messages for edge cases for 
+- only show avalible major tables
 
-Write some HTML and CSS to view the seating chart of the event in which each table is displayed with the table name and
-and each person seated at that table is displayed with their name, major, and person_type for that table, also display hte max_seats and seats avalible for each table.
-Make it look clean adn easy to read. 
+Presentation:
+When a guest arrives unregistered they scan a QR code which redirects them to this webpage.
+This is the form the guests have to fill out to RSVP/pre-register. This is also the form that the guests did not RSVP and they arrive at the event. 
+We have allocated a certain number of tables for each major. And we have a pre-defined number of students, prof, and mentors at each table. 
+And when a guest submits a form we add them to the avalible table, an avalible table for a guest is a table that matches their major and if there is space
+for that type of person at that table.
+
+
 """
