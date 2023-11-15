@@ -41,6 +41,14 @@ class Table(models.Model):
             if guest.person_type ==  person_type:
                 count += 1
         return count
+    
+    def get_max_person_type(self, t):
+        if t == "prof":
+            return self.max_prof
+        if t == "student":
+            return self.max_students
+        if t == "mentor":
+            return self.max_mentors
 
 
 class SeatingChart(models.Model):
@@ -59,7 +67,7 @@ class SeatingChart(models.Model):
     def assign_guest(self, new_guest, max_constants):
         for table in self.tables.all():
             if table.label == new_guest.major:
-                if table.get_type_count(new_guest.person_type) < max_constants[new_guest.person_type] and len(list(table.seated_guests.all())) < table.max_seats:
+                if table.get_type_count(new_guest.person_type) < table.get_max_person_type(new_guest.person_type) and len(list(table.seated_guests.all())) < table.max_seats:
                     table.seated_guests.add(new_guest)
                     table.save()
                     new_guest.save()

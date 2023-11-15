@@ -74,6 +74,9 @@ TODO:
 - Error messages for edge cases for 
 - only show avalible major tables
 
+NOTE:
+- in add table form table name as to match id of table major_tables = {"Aero/Mech":3,"Archi/Civil":3,"Elec":1,"Indus":1,"Env":1,"Bio":4,"Chem":3,"CS":3,"Deans/Chairmen/IndustryFriends":2}
+
 Presentation:
 When a guest arrives unregistered they scan a QR code which redirects them to this webpage.
 This is the form the guests have to fill out to RSVP/pre-register. This is also the form that the guests did not RSVP and they arrive at the event. 
